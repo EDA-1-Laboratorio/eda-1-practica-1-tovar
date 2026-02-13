@@ -41,7 +41,6 @@ void imprimirMundo() {
 
 int contarVecinos(int f, int c) {
     int vecinos = 0;
-    
     // TODO: Recorrer las 8 celdas alrededor de mundo[f][c]
     // CUIDADO: Debes verificar que los índices no se salgan del arreglo (0 a FILAS-1)
     // Ejemplo de lógica:
@@ -51,7 +50,25 @@ int contarVecinos(int f, int c) {
     //       ... si no es la propia celda (f,c) y está viva, vecinos++ ...
     //    }
     // }
-    
+    // Recorremos desde la fila anterior hasta la siguiente
+    for (int i = f - 1; i <= f + 1; i++) {
+        // Recorremos desde la columna anterior hasta la siguiente
+        for (int j = c - 1; j <= c + 1; j++) {
+            
+            // 1. Validar que los índices estén DENTRO del tablero
+            if (i >= 0 && i < FILAS && j >= 0 && j < COLS) {
+                
+                // 2. Descartar la propia celda central (no es vecina de sí misma)
+                if (!(i == f && j == c)) {
+                    
+                    // 3. Si hay una célula viva, sumamos al contador
+                    if (mundo[i][j] == 1) {
+                        vecinos++;
+                    }
+                }
+            }
+        }
+    }
     return vecinos;
 }
 
@@ -74,7 +91,10 @@ void siguienteGeneracion() {
 
             } else {
                 // REGLA 4: Reproducción (exactamente 3 vecinos) -> Nace
-                
+                if (vecinos == 3)
+                    siguiente_mundo[i][j] = 1; // Nace
+                else
+                    siguiente_mundo[i][j] = 0; // Sigue muerta
                 // TODO: Completar la lógica para células muertas
             }
         }
@@ -90,7 +110,7 @@ void siguienteGeneracion() {
 
 int main() {
     inicializarMundo();
-    int iteraciones = 5; // O infinito while(1)
+    int iteraciones = 10; // O infinito while(1)
 
     for(int k=0; k<iteraciones; k++) {
         imprimirMundo();
