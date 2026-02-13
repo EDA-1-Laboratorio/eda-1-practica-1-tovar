@@ -122,3 +122,4 @@ int main() {
 }
 
 // PREGUNTA: ¿Por qué es obligatoria la matriz siguiente_mundo? ¿Qué pasaría si actualizamos directamente sobre mundo?
+Porque si modificaramos mundo directamente mientras recorremos el tablero, alterariamos los calculos de vecinos para las celdas que siguen.
