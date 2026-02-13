@@ -68,6 +68,7 @@ void crearMensaje() {
             printf("%c", escitala[i][j]);
         }
     }
+
     
     printf("\n");
 }
