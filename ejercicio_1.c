@@ -7,6 +7,7 @@ void descifrarMensaje();
 
 int main() {
     int opcion = 0;
+
     
     while (1) {
         printf("\n\t*** ESCÍTALA ESPARTANA ***\n");
