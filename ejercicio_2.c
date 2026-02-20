@@ -63,5 +63,5 @@ int main() {
     return 0;
 }
 // PREGUNTA: ¿Qué sucede si se omite la verificación if (top <= bottom) -linea 21- dentro del bucle?
-RESPUESTA: Si se omite esa verificaion, el programa puede intentar recorrer y llenar una fila anterior que ya fue utilizada antes,
-esto puede hacer que se sobreescriban valores, la matriz tenga resultados incorrectos y/o pierda su orden logico.
+//RESPUESTA: Si se omite esa verificaion, el programa puede intentar recorrer y llenar una fila anterior que ya fue utilizada antes,
+//esto puede hacer que se sobreescriban valores, la matriz tenga resultados incorrectos y/o pierda su orden logico.
